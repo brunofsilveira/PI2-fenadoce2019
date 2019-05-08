@@ -15,22 +15,22 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Fenadoce 2019</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="{{ route('candidatas.principal') }}">Principal</a></li>
+    <ul class="nav navbar-nav" style="display: flex;align-items: center;">
+      <li><a href="{{ route('candidatas.principal') }}">Principal</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros <span class="caret"></span></a>
         <ul class="dropdown-menu">
         <li><a href="{{ route('candidatas.index') }}">Candidatas</a></li>
         </ul>
       </li>
-      <li class="active"><a href="{{ route('votos.index') }}">Votos</a></li>
-      <li class="active"><a href="{{ route('votos.contagem') }}">Qtd. de Votos</a></li>
+      <li><a href="{{ route('votos.index') }}">Votos</a></li>
+      <li><a href="{{ route('votos.contagem') }}">Qtd. de Votos</a></li>
       <li>
-        {{-- <a href="{{ route('candidatas.pesquisar') }}">Pesquisas</a></li> --}}
         <form class="form-inline" action="{{ route('candidatas.pesquisar') }}" method="POST">
           {{ csrf_field() }}
-          <input class="form-control mr-sm-2" name="inPesquisar" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2" name="inPesquisar" type="search" placeholder="Buscar..." aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0 btn-primary" type="submit">Buscar</button>
         </form>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
