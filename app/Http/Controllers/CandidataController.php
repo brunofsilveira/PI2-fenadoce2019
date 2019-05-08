@@ -23,6 +23,27 @@ class CandidataController extends Controller
         return view('lista_candidatas', ['linhas' => $linhas]);
     }
 
+    public function principal()
+    {
+        $linhas = Candidata::orderBy('nome')->get();
+
+        return view('principal', ['linhas' => $linhas]);
+    }
+
+    public function pesquisar(Request $request)
+    {
+        $linhas = Candidata::where('nome', 'LIKE', '%' . $request->inPesquisar . '%')->orWhere('clube', 'LIKE', '%' . $request->inPesquisar . '%')->get();
+
+        return view('principal', ['linhas' => $linhas]);
+    }
+
+    public function detalhes($id)
+    {
+        $reg = Candidata::find($id);
+
+        return view('detalhes_candidata', ['reg' => $reg]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

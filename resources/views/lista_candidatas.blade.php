@@ -1,4 +1,5 @@
-@extends('modelo') 
+@extends('modelo')
+
 @section('conteudo')
 
 <div class="row">

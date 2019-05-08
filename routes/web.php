@@ -20,3 +20,9 @@ Route::resource('candidatas', 'CandidataController')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('principal', 'CandidataController@principal')->name('candidatas.principal');
+
+Route::post('pesquisar', 'CandidataController@pesquisar')->name('candidatas.pesquisar');
+
+Route::get('candidata/{id}', 'CandidataController@detalhes')->name('candidatas.detalhes');
