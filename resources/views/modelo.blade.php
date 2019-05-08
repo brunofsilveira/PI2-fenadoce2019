@@ -22,6 +22,8 @@
         <li><a href="{{ route('candidatas.index') }}">Candidatas</a></li>
         </ul>
       </li>
+      <li class="active"><a href="{{ route('votos.index') }}">Votos</a></li>
+      <li class="active"><a href="{{ route('votos.contagem') }}">Qtd. de Votos</a></li>
       <li>
         {{-- <a href="{{ route('candidatas.pesquisar') }}">Pesquisas</a></li> --}}
         <form class="form-inline" action="{{ route('candidatas.pesquisar') }}" method="POST">

@@ -41,7 +41,7 @@ class CandidataController extends Controller
     {
         $reg = Candidata::find($id);
 
-        return view('detalhes_candidata', ['reg' => $reg]);
+        return view('detalhes_candidata', ['reg' => $reg])->with('id',$id);
     }
 
     /**
