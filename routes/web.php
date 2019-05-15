@@ -17,6 +17,20 @@ Route::get('/', function () {
 
 Route::resource('candidatas', 'CandidataController')->middleware('auth');
 
+Route::resource('votos', 'VotoController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('principal', 'CandidataController@principal')->name('candidatas.principal');
+
+Route::post('pesquisar', 'CandidataController@pesquisar')->name('candidatas.pesquisar');
+
+Route::get('candidata/{id}', 'CandidataController@detalhes')->name('candidatas.detalhes');
+
+Route::post('createVotos', 'CandidataController@createVotos')->name('candidatas.createVotos');
+
+Route::get('contagem', 'VotoController@contagem')->name('votos.contagem');
+
+Route::get('cand_email/{id}', 'CandidataController@email')->name('candidatas.email');

@@ -1,12 +1,15 @@
-@extends('modelo') 
+@extends('modelo')
+
 @section('conteudo')
+
+<div class="container">
 
 <div class="row">
   <div class="col-sm-10">
      <h3>Candidatas Cadastradas</h3>
   </div>   
   <div class="col-sm-2">
-    <a href="{{ route('candidatas.create') }}" class="btn btn-primary btn-sm" style="margin-top:24px" role="button">Incluir</a>
+    <a href="{{ route('candidatas.create') }}" class="blue lighten-2 btn float right" style="margin-top:24px" role="button">Incluir</a>
   </div>   
 </div>
 
@@ -16,7 +19,7 @@
 </div>
 @endif
 
-<table class="table table-hover">
+<table class="responsive-table highlight">
   <thead>
     <tr>
       <th>Nº</th>
@@ -34,13 +37,14 @@
       <td> {{ $linha->nome }} </td>
       <td> {{ $linha->clube }} </td>
       <td> <img src='storage/{{ $linha->foto }}' style='width: 120px; height: 80px;'> </td>
-      <td> <a href="{{ route('candidatas.edit', $linha->id) }}" class="btn btn-info btn-sm" role="button">Alterar</a>&nbsp;
-        <a href="{{ route('candidatas.show', $linha->id) }}" class="btn btn-success btn-sm" role="button">Consultar</a>&nbsp;
+      <td> <a href="{{ route('candidatas.edit', $linha->id) }}" class="btn blue darken-1" role="button">Alterar</a>&nbsp;
+        <a href="{{ route('candidatas.show', $linha->id) }}" class="btn green accent-4" role="button">Consultar</a>&nbsp;
         <form method="post" action="{{ route('candidatas.destroy', $linha->id)}}" style="display: inline-block" onsubmit="return confirm('Confirma Exclusão desta Candidata?')">          
           {{ method_field('delete') }}
           {{ csrf_field() }}
-          <input type="submit" class="btn btn-danger btn-sm" value="Excluir">
+          <input type="submit" class="btn red darken-1" value="Excluir">&nbsp;
         </form>
+        <a href="{{ route('candidatas.email', $linha->id) }}" class="btn blue accent-2" role="button">E-Mail</a>
       </td>
     </tr>
 
@@ -48,4 +52,6 @@
 
   </tbody>
 </table>
+
+</div>
 @endsection
