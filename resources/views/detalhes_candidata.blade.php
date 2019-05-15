@@ -2,6 +2,8 @@
 
 @section('conteudo')
 
+<div class="container">
+
 @if ($errors->any())
 
     <div class="alert alert-danger" role="alert">
@@ -54,6 +56,8 @@
         </div>
 
     </div>
+
+</div>
 
 </div>
 

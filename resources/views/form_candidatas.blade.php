@@ -2,6 +2,8 @@
 
 @section('conteudo') 
 
+<div class="container">
+
 @if ($acao == 1)
   <h3>Inclusão de Candidatas</h3>
   <form method="post" action="{{ route('candidatas.store') }}" enctype="multipart/form-data">
@@ -45,19 +47,24 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="form-group">
-                <label for="imagem">Foto:</label>
-                <input type="file" class="form-control" id="imagem" name="imagem"
-                      @if ($acao==3)
-                          readonly="readonly" 
-                      @endif
-                >
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file" multiple id="imagem" name="imagem"
+                  @if ($acao==3)
+                      readonly="readonly" 
+                  @endif
+                  >
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
               </div>
             </div>
           </div>
 
         @if ($acao == 1 or $acao == 2)
-          <input type="submit" value="Enviar" class="btn btn-danger">
+          <input type="submit" value="Enviar" class="blue lighten-2 btn btn-danger">
         </form>
         @else
         <div class="text-right">
@@ -77,4 +84,5 @@
     <!-- arquivos js ficam em public/js -->
     <script src="{{ URL::asset('js/foto.js') }}"></script>
 
+  </div>
 @endsection

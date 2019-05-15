@@ -2,12 +2,14 @@
 
 @section('conteudo')
 
+<div class="container">
+
 <div class="row">
   <div class="col-sm-10">
      <h3>Candidatas Cadastradas</h3>
   </div>   
   <div class="col-sm-2">
-    <a href="{{ route('candidatas.create') }}" class="btn btn-primary btn-sm" style="margin-top:24px" role="button">Incluir</a>
+    <a href="{{ route('candidatas.create') }}" class="blue lighten-2 btn float right" style="margin-top:24px" role="button">Incluir</a>
   </div>   
 </div>
 
@@ -17,7 +19,7 @@
 </div>
 @endif
 
-<table class="table table-hover">
+<table class="responsive-table highlight">
   <thead>
     <tr>
       <th>Nº</th>
@@ -49,4 +51,6 @@
 
   </tbody>
 </table>
+
+</div>
 @endsection

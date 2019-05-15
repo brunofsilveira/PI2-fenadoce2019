@@ -49,7 +49,7 @@ class VotoController extends Controller
     {
         $validatedData = $request->validate([
             'nome' => 'required|min:10',
-            'email' => 'required|unique:posts',
+            'email' => 'required|unique:votos',
         ]);
 
         $dados = $request->all();

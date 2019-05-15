@@ -2,27 +2,29 @@
 
 @section('conteudo')
 
-<div class="container-fluid">
     <div class="row">
 
         @foreach ($linhas as $linha)
 
-        <div class="col-md-3">
-
-            <div class="bg-primary card" style="width: 18rem;">
-                <img class="card-img-top" src='../../storage/app/public/{{ $linha->foto }}'>
-                <div class="card-body">
-                    <h5 class="card-title"> {{ $linha->nome }} </h5>
-                    <p class="card-text"> {{ $linha->clube }} </p>
-                    <a href="{{ route('candidatas.detalhes',$linha->id) }}" class="btn btn-primary">Votar Nesta Candidata</a>
-                </div>
-            </div>
+            <div class="col s12 m6 l3">
                 
-        </div>
+                <div class="card white-text">
+                    <div class="card-image">
+                        <img src='storage/{{ $linha->foto }}'  style="height:200px;">
+                    </div>
+                    <div class="card-content   blue darken-1">
+                        <span class="card-title"> {{ $linha->nome }} </span>
+                        <p> {{ $linha->clube }} </p>
+                    </div>
+                    <div class="card-action  blue darken-2">
+                        <a class="white-text" href="{{ route('candidatas.detalhes',$linha->id) }}">Votar Nesta Candidata</a>
+                    </div>
+                </div>
+                    
+            </div>
         
         @endforeach
         
     </div>
-</div>
     
 @endsection

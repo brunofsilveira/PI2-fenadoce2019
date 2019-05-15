@@ -2,7 +2,15 @@
 
 @section('conteudo')
 
-<table class="table table-hover">
+<div class="container">
+
+<div class="row">
+    <div class="col 12">
+       <h3>Votos dos Usuários</h3>
+    </div>
+</div>
+
+<table class="responsive-table highlight"x>
 <thead>
     <tr>
         <th>Usuário</th>
@@ -23,5 +31,7 @@
 
 </tbody>
 </table>
+
+</div>
     
 @endsection
