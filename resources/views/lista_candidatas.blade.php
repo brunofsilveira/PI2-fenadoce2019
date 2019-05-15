@@ -42,8 +42,9 @@
         <form method="post" action="{{ route('candidatas.destroy', $linha->id)}}" style="display: inline-block" onsubmit="return confirm('Confirma Exclusão desta Candidata?')">          
           {{ method_field('delete') }}
           {{ csrf_field() }}
-          <input type="submit" class="btn red darken-1" value="Excluir">
+          <input type="submit" class="btn red darken-1" value="Excluir">&nbsp;
         </form>
+        <a href="{{ route('candidatas.email', $linha->id) }}" class="btn blue accent-2" role="button">E-Mail</a>
       </td>
     </tr>
 

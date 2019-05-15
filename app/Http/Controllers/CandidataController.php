@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use App\Candidata;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AvisoDesfile;
 
 class CandidataController extends Controller
 {
@@ -176,5 +178,15 @@ class CandidataController extends Controller
             return redirect()->route('candidatas.index')
                    ->with('status', 'Erro... Candidata Não Excluída...');
         }
+    }
+
+    public function email($id)
+    {
+        $reg = Candidata::find($id);
+        $destino = $reg['email'];
+
+        Mail::to($destino)->send(new AvisoDesfile($reg));
+
+        return redirect()->route('candidatas.principal')->with('status', 'Ok! E-mail enviado com sucesso.');
     }
 }

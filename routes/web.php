@@ -32,3 +32,5 @@ Route::get('candidata/{id}', 'CandidataController@detalhes')->name('candidatas.d
 Route::post('createVotos', 'CandidataController@createVotos')->name('candidatas.createVotos');
 
 Route::get('contagem', 'VotoController@contagem')->name('votos.contagem');
+
+Route::get('cand_email/{id}', 'CandidataController@email')->name('candidatas.email');
