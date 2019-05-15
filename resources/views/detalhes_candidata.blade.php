@@ -6,7 +6,7 @@
 
 @if ($errors->any())
 
-    <div class="alert alert-danger" role="alert">
+    <div class="col 12" role="alert">
         <ul>
 
             @foreach ($errors->all() as $error)
@@ -20,44 +20,39 @@
     
 @endif
 
-<div class="container">
-
     <div class="row">
     
-        <div class="col-md-5">
+        <div>
 
-            <img class="card-img-top img responsive" src='storage/{{ $reg->foto }}'> 
             <h5 class="card-title"> {{ $reg->nome }} </h5>
             <p class="card-text"> {{ $reg->clube }} </p>
                 
         </div>
 
-        <div class="col-md-7">
+        <div>
 
             <form method="POST" action="{{ route('votos.store') }}">
                 
                 {{ csrf_field() }}
 
-                <div class="form-group">
+                <div>
                     <label for="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Enter nome">
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="email">E-Mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
                 </div>
-                <div class="form-group">
+                <div>
                     <label for="candidata_id">Candidata</label>
                     <input type="text" class="form-control" id="candidata_id" name="candidata_id" value="{{ $id }}" readonly>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
 
         </div>
 
     </div>
-
-</div>
 
 </div>
 

@@ -32,6 +32,10 @@
       -webkit-box-shadow: none;
     }
 
+    .brand-logo {
+      margin-left: 2.5%;
+    }
+
   </style>
 </head>
 <body>
@@ -40,30 +44,30 @@
       <a href="#" class="brand-logo">Fenadoce 2019</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{ route('candidatas.principal') }}">Principal</a></li>
-        {{-- <li>
-          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-          <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
-        </li> --}}
-        <li><a href="{{ route('candidatas.index') }}">Cadastros - Candidatas</a></li>
-        <li><a href="{{ route('votos.index') }}">Votos</a></li>
-        <li><a href="{{ route('votos.contagem') }}">Classificação</a></li>
-        <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-        <li>
-          <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-in"></span>
-            Sair
-          </a>
+        
+        @if (Auth::check())
 
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-          </form>        
-        </li>
+          <li><a href="{{ route('candidatas.index') }}">Cadastros - Candidatas</a></li>
+          <li><a href="{{ route('votos.index') }}">Votos</a></li>
+          <li><a href="{{ route('votos.contagem') }}">Classificação</a></li>
+          <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
+          <li>
+            <a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-in"></span>
+              Sair
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>        
+          </li>
+            
+        @else
+
+          <li><a href="{{ route('login') }}">Logar / Registrar</a></li>
+            
+        @endif
+
         <li>
           <nav class="nav-search blue darken-1">
             <div class="nav-wrapper">
@@ -82,52 +86,6 @@
       </ul>
     </div>
   </nav>
-
-  
-{{-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-    <li><a href="{{ route('candidatas.index') }}">Candidatas</a></li>
-    </ul>
-  </li> --}}
-
-{{-- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Fenadoce 2019</a>
-    </div>
-    <ul class="nav navbar-nav" style="display: flex;align-items: center;">
-      <li><a href="{{ route('candidatas.principal') }}">Principal</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-        <li><a href="{{ route('candidatas.index') }}">Candidatas</a></li>
-        </ul>
-      </li>
-      <li><a href="{{ route('votos.index') }}">Votos</a></li>
-      <li><a href="{{ route('votos.contagem') }}">Classificação</a></li>
-      <li>
-        <form class="form-inline" action="{{ route('candidatas.pesquisar') }}" method="POST">
-          {{ csrf_field() }}
-          <input class="form-control mr-sm-2" name="inPesquisar" type="search" placeholder="Buscar..." aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 btn-primary" type="submit">Buscar</button>
-        </form>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->name }}</a></li>
-      <li>
-          <a href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-                   document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-in"></span>
-          Sair
-      </a>
-
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          {{ csrf_field() }}
-      </form>        
-      </li>
-    </ul>
-  </div>
-</nav> --}}
 
 @yield('conteudo')
 

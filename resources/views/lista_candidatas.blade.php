@@ -37,12 +37,12 @@
       <td> {{ $linha->nome }} </td>
       <td> {{ $linha->clube }} </td>
       <td> <img src='storage/{{ $linha->foto }}' style='width: 120px; height: 80px;'> </td>
-      <td> <a href="{{ route('candidatas.edit', $linha->id) }}" class="btn btn-info btn-sm" role="button">Alterar</a>&nbsp;
-        <a href="{{ route('candidatas.show', $linha->id) }}" class="btn btn-success btn-sm" role="button">Consultar</a>&nbsp;
+      <td> <a href="{{ route('candidatas.edit', $linha->id) }}" class="btn blue darken-1" role="button">Alterar</a>&nbsp;
+        <a href="{{ route('candidatas.show', $linha->id) }}" class="btn green accent-4" role="button">Consultar</a>&nbsp;
         <form method="post" action="{{ route('candidatas.destroy', $linha->id)}}" style="display: inline-block" onsubmit="return confirm('Confirma Exclusão desta Candidata?')">          
           {{ method_field('delete') }}
           {{ csrf_field() }}
-          <input type="submit" class="btn btn-danger btn-sm" value="Excluir">
+          <input type="submit" class="btn red darken-1" value="Excluir">
         </form>
       </td>
     </tr>

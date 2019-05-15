@@ -21,7 +21,7 @@
 {{ csrf_field() }}
 
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col 8">
         <div class="form-group">
           <label for="nome">Nome da Candidata:</label>
             <input type="text" class="form-control" id="nome" name="nome" 
@@ -34,7 +34,7 @@
           </div>
 
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col 6">
               <div class="form-group">
                 <label for="clube">Clube:</label>
                 <input type="text" class="form-control" id="clube" name="clube"
@@ -46,7 +46,7 @@
               </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col 6">
               <div class="file-field input-field">
                 <div class="btn">
                   <span>File</span>
